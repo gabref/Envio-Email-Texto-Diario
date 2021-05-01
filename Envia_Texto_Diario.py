@@ -22,7 +22,13 @@ versiculo = nav.find_element_by_xpath('//*[@id="p3"]/a/em').text
 texto_diario = nav.find_element_by_xpath('//*[@id="p4"]').text
 
 texto = list((titulo_texto, texto_do_dia, versiculo, texto_diario))
-print(texto)
+
+# envio do email
+import win32com.client as win32 
+
+# integração python com outlook
+outlook = win32.Dispatch('outlook.application')
+
 
 # sair do navegador
-nav.quit()
+# nav.quit()
