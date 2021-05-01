@@ -32,6 +32,16 @@ outlook = win32.Dispatch('outlook.application')
 #criar email
 email = outlook.CreateItem(0) # cria item no outlook
 
+# email destino
+email_destino = 'email@destino.com'
+
+# configurar as informações do email
+email.To = email_destino # destino
+email.Subject = texto['titulo_texto'] # assunto
+email.HTMLBody = """
+
+""" # corpo do email
+
 
 # sair do navegador
 # nav.quit()
