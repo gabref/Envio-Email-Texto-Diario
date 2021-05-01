@@ -38,10 +38,21 @@ email_destino = 'email@destino.com'
 # configurar as informações do email
 email.To = email_destino # destino
 email.Subject = texto['titulo_texto'] # assunto
-email.HTMLBody = """
-
+email.HTMLBody = f"""
+<h2>{texto[0]}</h2>
+<br>
+<p><em>{texto[1]}</em> - <b>{texto[2]}</b></p>
+<hr>
+<p>{texto[3]}</p>
 """ # corpo do email
 
+# anexo no email
+# anexo = "caminho do anexo"
+# email.Attachments.Add(anexo)
+
+# Enviar email
+email.Send()
+print('Email Enviado')
 
 # sair do navegador
 # nav.quit()
