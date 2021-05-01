@@ -29,6 +29,9 @@ import win32com.client as win32
 # integração python com outlook
 outlook = win32.Dispatch('outlook.application')
 
+#criar email
+email = outlook.CreateItem(0) # cria item no outlook
+
 
 # sair do navegador
 # nav.quit()
