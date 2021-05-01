@@ -11,3 +11,7 @@ nav = webdriver.Chrome()
 # chrome_options = Options()
 # chrome_options.headless = True # also works
 # nav = webdriver.Chrome(options=chrome_options)
+
+# acessar jw
+nav.get('https://wol.jw.org/pt/wol/h/r5/lp-t')
+# nav.find_element_by_xpath('//*[@id="dailyText"]/div[2]/div[3]/header')
