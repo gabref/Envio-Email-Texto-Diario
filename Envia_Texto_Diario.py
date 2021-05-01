@@ -23,6 +23,9 @@ texto_diario = nav.find_element_by_xpath('//*[@id="p4"]').text
 
 texto = list((titulo_texto, texto_do_dia, versiculo, texto_diario))
 
+# sair do navegador
+nav.quit()
+
 # envio do email
 import win32com.client as win32 
 
@@ -32,27 +35,27 @@ outlook = win32.Dispatch('outlook.application')
 #criar email
 email = outlook.CreateItem(0) # cria item no outlook
 
-# email destino
-email_destino = 'email@destino.com'
-
 # configurar as informações do email
-email.To = email_destino # destino
-email.Subject = texto['titulo_texto'] # assunto
+# email.To = email_destino.loc[0, 'email'] # destino
+email.Subject = texto[0] # assunto
 email.HTMLBody = f"""
 <h2>{texto[0]}</h2>
 <br>
-<p><em>{texto[1]}</em> - <b>{texto[2]}</b></p>
+<p><em>{texto[1]}</em> - <b style="color:powderblue;">{texto[2]}</b></p>
 <hr>
 <p>{texto[3]}</p>
-""" # corpo do email
-
+""" # corpo do email'
 # anexo no email
 # anexo = "caminho do anexo"
 # email.Attachments.Add(anexo)
 
-# Enviar email
-email.Send()
-print('Email Enviado')
+# email destino
+import pandas as pd
 
-# sair do navegador
-# nav.quit()
+email_destino = pd.read_csv('email.csv') # 'email@destino.com'
+
+for index, row in email_destino.iterrows():
+    email.To = row['email']
+    # Enviar email
+    email.Send()
+    print(f'Email Enviado para {row['email']}')
