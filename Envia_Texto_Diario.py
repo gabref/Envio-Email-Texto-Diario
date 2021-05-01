@@ -15,3 +15,6 @@ nav = webdriver.Chrome()
 # acessar jw
 nav.get('https://wol.jw.org/pt/wol/h/r5/lp-t')
 # nav.find_element_by_xpath('//*[@id="dailyText"]/div[2]/div[3]/header')
+
+# sair do navegador
+nav.quit()
