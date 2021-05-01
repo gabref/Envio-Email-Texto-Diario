@@ -14,7 +14,15 @@ nav = webdriver.Chrome()
 
 # acessar jw
 nav.get('https://wol.jw.org/pt/wol/h/r5/lp-t')
-# nav.find_element_by_xpath('//*[@id="dailyText"]/div[2]/div[3]/header')
+
+# pegar informações do texto diário
+titulo_texto = nav.find_element_by_xpath('//*[@id="dailyText"]/div[2]/div[3]/header').text
+texto_do_dia = nav.find_element_by_xpath('//*[@id="p3"]/em[1]').text
+versiculo = nav.find_element_by_xpath('//*[@id="p3"]/a/em').text
+texto_diario = nav.find_element_by_xpath('//*[@id="p4"]').text
+
+texto = list((titulo_texto, texto_do_dia, versiculo, texto_diario))
+print(texto)
 
 # sair do navegador
 nav.quit()
