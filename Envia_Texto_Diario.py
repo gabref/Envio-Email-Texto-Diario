@@ -37,6 +37,7 @@ email = outlook.CreateItem(0) # cria item no outlook
 
 # configurar as informações do email
 # email.To = email_destino.loc[0, 'email'] # destino
+
 email.Subject = texto[0] # assunto
 email.HTMLBody = f"""
 <body style="background-image: linear-gradient(#000272, #341677, #a32f80, #ff6363);">
@@ -48,6 +49,7 @@ email.HTMLBody = f"""
     <p style="color: #51d2d6; font-family: Verdana, Geneva, Tahoma, sans-serif;">{texto[3]}</p>
 </body>
 """ # corpo do email'
+
 # anexo no email
 # anexo = "caminho do anexo"
 # email.Attachments.Add(anexo)
@@ -55,10 +57,10 @@ email.HTMLBody = f"""
 # email destino
 import pandas as pd
 
-email_destino = pd.read_csv('email.csv') # 'email@destino.com'
+# email_destino = pd.read_csv('email.csv') # 'email@destino.com'
 
-for index, row in email_destino.iterrows():
-    email.To = row['email']
-    # Enviar email
-    email.Send()
-    print(f'Email Enviado para {row['email']}')
+# for index, row in email_destino.iterrows():
+#     email.To = row['email']
+#     # Enviar email
+#     email.Send()
+#     print(f'Email Enviado para {row}')
