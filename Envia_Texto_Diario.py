@@ -57,7 +57,21 @@ email.HTMLBody = f"""
 # email destino
 import pandas as pd
 
-# email_destino = pd.read_csv('email.csv') # 'email@destino.com'
+email_destino = pd.read_csv('email.csv') # 'email@destino.com'
+
+conjunto_emails = list() # cria lista para juntar emails do arquivo csv 
+
+# itera os itens no arquivo csv para colocar na lista
+for index, row in email_destino.iterrows():
+    conjunto_emails.append(row['email'])
+
+# transformar a lista de emails em uma string
+conjunto_emails_string = "; ".join(conjunto_emails)
+
+# enviar emails
+email.To = conjunto_emails_string
+email.Send()
+print(f'\n\n Emails enviados para {conjunto_emails_string}\n\n')
 
 # for index, row in email_destino.iterrows():
 #     email.To = row['email']
